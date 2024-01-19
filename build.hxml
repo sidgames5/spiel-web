@@ -1,0 +1,8 @@
+-cp src
+-D analyzer-optimize
+--dce std
+-main Main
+-D js-classic
+--js out/temp/spiel.js
+--cmd cp html/* out/temp/
+--cmd tar -czvf out/$(cat version).tar.gz -C out/temp .

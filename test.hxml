@@ -1,0 +1,7 @@
+-cp src
+-D analyzer-optimize
+--dce std
+-main Main
+-D js-classic
+--js run/spiel.js
+--cmd cp html/* run/
