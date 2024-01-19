@@ -1,3 +1,4 @@
+import js.html.DivElement;
 import js.Cookie;
 import js.html.Storage;
 import js.Browser;
@@ -11,10 +12,11 @@ class Main {
 		// check if a token is stored in the cookies
 		if (Cookie.exists("token")) {
 			// TODO: authenticate with the server
-			container.innerHTML = Utils.wrapHtml("h1", "Please wait: Logging in");
 		} else {
 			// TODO: show login page
-			container.innerHTML = Utils.wrapHtml("h1", "Sign in");
+			var sbox = doc.createDivElement();
+			sbox.classList.add("loginBox");
+			container.appendChild(sbox);
 		}
 	}
 }
