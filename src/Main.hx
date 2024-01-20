@@ -1,8 +1,5 @@
-import js.html.DivElement;
 import js.Cookie;
-import js.html.Storage;
 import js.Browser;
-import js.html.Document;
 
 class Main {
 	static function main() {
@@ -15,13 +12,19 @@ class Main {
 		} else {
 			var sbox = doc.createDivElement();
 			sbox.classList.add("loginBox");
+
+			var lbTitle = doc.createElement("h1");
+			lbTitle.innerHTML = "Welcome to Spiel";
+
 			var lbButton = doc.createButtonElement();
 			lbButton.innerHTML = "Log in";
 			lbButton.classList.add("loginBoxButton");
+
 			var sgButton = doc.createButtonElement();
 			sgButton.innerHTML = "Sign up";
 			sgButton.classList.add("loginBoxButton");
 
+			sbox.appendChild(lbTitle);
 			sbox.appendChild(lbButton);
 			sbox.appendChild(doc.createBRElement());
 			sbox.appendChild(sgButton);
