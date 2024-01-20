@@ -19,10 +19,12 @@ class Main {
 			var lbButton = doc.createButtonElement();
 			lbButton.innerHTML = "Log in";
 			lbButton.classList.add("loginBoxButton");
+			lbButton.onclick = LoginPage.renderLogin;
 
 			var sgButton = doc.createButtonElement();
 			sgButton.innerHTML = "Sign up";
 			sgButton.classList.add("loginBoxButton");
+			sgButton.onclick = LoginPage.renderSignup;
 
 			sbox.appendChild(lbTitle);
 			sbox.appendChild(lbButton);
