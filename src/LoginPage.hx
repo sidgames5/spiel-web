@@ -26,7 +26,7 @@ class LoginPage {
 		pwdLabel.innerHTML = "Password";
 		pwdLabel.htmlFor = "pwd";
 		var pwdInput = doc.createInputElement();
-		pwdInput.type = "text";
+		pwdInput.type = "password";
 		pwdInput.id = "pwd";
 		pwdInput.name = "pwd";
 
@@ -84,7 +84,7 @@ class LoginPage {
 		pwdLabel.innerHTML = "Password";
 		pwdLabel.htmlFor = "pwd";
 		var pwdInput = doc.createInputElement();
-		pwdInput.type = "text";
+		pwdInput.type = "password";
 		pwdInput.id = "pwd";
 		pwdInput.name = "pwd";
 
