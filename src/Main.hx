@@ -13,9 +13,18 @@ class Main {
 		if (Cookie.exists("token")) {
 			// TODO: authenticate with the server
 		} else {
-			// TODO: show login page
 			var sbox = doc.createDivElement();
 			sbox.classList.add("loginBox");
+			var lbButton = doc.createButtonElement();
+			lbButton.innerHTML = "Log in";
+			lbButton.classList.add("loginBoxButton");
+			var sgButton = doc.createButtonElement();
+			sgButton.innerHTML = "Sign up";
+			sgButton.classList.add("loginBoxButton");
+
+			sbox.appendChild(lbButton);
+			sbox.appendChild(doc.createBRElement());
+			sbox.appendChild(sgButton);
 			container.appendChild(sbox);
 		}
 	}

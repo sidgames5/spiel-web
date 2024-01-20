@@ -4,3 +4,13 @@
     border-style: solid;
     border: 1px;
 }
+
+.loginBoxButton {
+    padding: 7px;
+    border: 2px;
+    border-style: none;
+    background-color: #9500FF;
+    border-radius: 10px;
+    margin: 5px;
+    color: white;
+}
