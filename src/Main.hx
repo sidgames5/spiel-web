@@ -92,31 +92,31 @@ class Main {
 			AppRenderer.start();
 		} else {
 			// check if a token is stored in the cookies
-			if (Cookie.exists("token")) {
-				// TODO: authenticate with the server
-			} else {
-				var sbox = doc.createDivElement();
-				sbox.classList.add("loginBox");
+			// if (Cookie.exists("token")) {
+			// 	// TODO: authenticate with the server
+			// } else {
+			var sbox = doc.createDivElement();
+			sbox.classList.add("loginBox");
 
-				var lbTitle = doc.createElement("h1");
-				lbTitle.innerHTML = "Welcome to Spiel";
+			var lbTitle = doc.createElement("h1");
+			lbTitle.innerHTML = "Welcome to Spiel";
 
-				var lbButton = doc.createButtonElement();
-				lbButton.innerHTML = "Log in";
-				lbButton.classList.add("loginBoxButton");
-				lbButton.onclick = LoginPage.renderLogin;
+			var lbButton = doc.createButtonElement();
+			lbButton.innerHTML = "Log in";
+			lbButton.classList.add("loginBoxButton");
+			lbButton.onclick = LoginPage.renderLogin;
 
-				var sgButton = doc.createButtonElement();
-				sgButton.innerHTML = "Sign up";
-				sgButton.classList.add("loginBoxButton");
-				sgButton.onclick = LoginPage.renderSignup;
+			var sgButton = doc.createButtonElement();
+			sgButton.innerHTML = "Sign up";
+			sgButton.classList.add("loginBoxButton");
+			sgButton.onclick = LoginPage.renderSignup;
 
-				sbox.appendChild(lbTitle);
-				sbox.appendChild(lbButton);
-				sbox.appendChild(doc.createBRElement());
-				sbox.appendChild(sgButton);
-				container.appendChild(sbox);
-			}
+			sbox.appendChild(lbTitle);
+			sbox.appendChild(lbButton);
+			sbox.appendChild(doc.createBRElement());
+			sbox.appendChild(sgButton);
+			container.appendChild(sbox);
+			// }
 		}
 	}
 }

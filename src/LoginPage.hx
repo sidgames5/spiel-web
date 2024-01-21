@@ -45,6 +45,7 @@ class LoginPage {
 		var registerText = doc.createParagraphElement();
 		registerText.innerHTML = "Need an account?";
 		registerText.onclick = renderSignup;
+		registerText.classList.add("link");
 
 		sbox.appendChild(lbTitle);
 		sbox.appendChild(lgForm);
@@ -106,6 +107,7 @@ class LoginPage {
 		var loginText = doc.createParagraphElement();
 		loginText.innerHTML = "Already have an account?";
 		loginText.onclick = renderLogin;
+		loginText.classList.add("link");
 
 		sbox.appendChild(lbTitle);
 		sbox.appendChild(lgForm);
