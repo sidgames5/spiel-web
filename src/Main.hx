@@ -88,7 +88,9 @@ class Main {
 				Browser.window.location.href = "/";
 			};
 			req.request(true);
-		} else if (Browser.window.location.href.contains("app")) {} else {
+		} else if (Browser.window.location.href.contains("app")) {
+			AppRenderer.start();
+		} else {
 			// check if a token is stored in the cookies
 			if (Cookie.exists("token")) {
 				// TODO: authenticate with the server
