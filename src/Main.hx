@@ -79,10 +79,27 @@ class Main {
 				}
 			}));
 			req.onData = d -> {
-				Cookie.set("token", d);
-				Browser.window.location.href = "/app.html";
+				var loginreq = new Http("http://localhost:8192");
+				loginreq.setPostData(Json.stringify({
+					register: false,
+					username: uname,
+					passwordHash: Sha256.encode(pwd)
+				}));
+				loginreq.onData = d2 -> {
+					Cookie.set("token", d2);
+					Browser.window.location.href = "/app.html";
+				};
+				loginreq.onError = e2 -> {
+					trace(e2);
+					Browser.window.location.href = "/";
+				};
+				loginreq.onStatus = s -> {
+					trace(s);
+				};
+				loginreq.request(true);
 			};
 			req.onError = e -> {
+				trace(e);
 				Browser.window.location.href = "/";
 			};
 			req.request(true);
