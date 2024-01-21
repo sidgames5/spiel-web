@@ -19,8 +19,8 @@ class Main {
 
 			final params = Browser.window.location.href.split("?")[1].split("&");
 
-			var uname:String;
-			var pwd:String;
+			var uname:String = "";
+			var pwd:String = "";
 
 			for (param in params) {
 				var k = param.split("=")[0];
