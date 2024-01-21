@@ -70,8 +70,8 @@ class Main {
 
 			var req = new Http("http://localhost:8192");
 			req.setPostData(Json.stringify({
-				instruction: "ADD_USER",
-				data1: {
+				register: true,
+				user: {
 					username: uname,
 					displayName: dname,
 					pictureBytes: "",
@@ -79,24 +79,9 @@ class Main {
 				}
 			}));
 			req.onData = d -> {
-				var loginreq = new Http("http://localhost:8192");
-				loginreq.setPostData(Json.stringify({
-					register: false,
-					username: uname,
-					passwordHash: Sha256.encode(pwd)
-				}));
-				loginreq.onData = d2 -> {
-					Cookie.set("token", d2);
-					Browser.window.location.href = "/app.html";
-				};
-				loginreq.onError = e2 -> {
-					trace(e2);
-					Browser.window.location.href = "/";
-				};
-				loginreq.onStatus = s -> {
-					trace(s);
-				};
-				loginreq.request(true);
+				trace(d);
+				Cookie.set("token", d);
+				Browser.window.location.href = "/app.html";
 			};
 			req.onError = e -> {
 				trace(e);
