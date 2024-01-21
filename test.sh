@@ -1,3 +1,3 @@
 #!/bin/bash
 haxe test.hxml
-python -m http.server -d run
+python3 -m http.server -d run
