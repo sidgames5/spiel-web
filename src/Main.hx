@@ -50,6 +50,42 @@ class Main {
 			title.innerHTML = "Please Wait";
 
 			container.appendChild(title);
+
+			final params = Browser.window.location.href.split("?")[1].split("&");
+
+			var uname:String = "";
+			var pwd:String = "";
+			var dname:String = "";
+
+			for (param in params) {
+				var k = param.split("=")[0];
+				var v = param.split("=")[1];
+				if (k == "uname")
+					uname = v;
+				if (k == "pwd")
+					pwd = v;
+				if (k == "dname")
+					dname = v;
+			}
+
+			var req = new Http("http://localhost:8192");
+			req.setPostData(Json.stringify({
+				instruction: "ADD_USER",
+				data1: {
+					username: uname,
+					displayName: dname,
+					pictureBytes: "",
+					passwordHash: Sha256.encode(pwd)
+				}
+			}));
+			req.onData = d -> {
+				Cookie.set("token", d);
+				Browser.window.location.href = "/app.html";
+			};
+			req.onError = e -> {
+				Browser.window.location.href = "/";
+			};
+			req.request(true);
 		} else if (Browser.window.location.href.contains("app")) {} else {
 			// check if a token is stored in the cookies
 			if (Cookie.exists("token")) {
