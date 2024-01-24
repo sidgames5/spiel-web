@@ -1,3 +1,4 @@
+import util.NetUtil;
 import haxe.Exception;
 import models.User;
 import util.TokenUtil;
@@ -38,7 +39,19 @@ class AppRenderer {
 			if (d == null)
 				return;
 			user = Json.parse(d);
-			// TODO
+			var channels = user.channels;
+			var convos = new Array<String>();
+			for (channel in channels) {
+				var convo = NetUtil.getChannel(channel);
+				convos.push(convo.name);
+			}
+
+			var convolist = doc.getElementById("convoslist");
+			for (convo in convos) {
+				var li = doc.createElement("li");
+				li.innerHTML = convo;
+				convolist.appendChild(li);
+			}
 		};
 		req.onError = e -> {
 			throw new Exception(e);
