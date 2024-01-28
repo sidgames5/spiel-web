@@ -24,6 +24,8 @@ class AppRenderer {
 			css.href = "app_light.css";
 		}
 		doc.head.appendChild(css);
+
+		loadConvoList(doc);
 	}
 
 	public static function loadConvoList(doc:Document) {
