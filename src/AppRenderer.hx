@@ -38,10 +38,14 @@ class AppRenderer {
 		req.setPostData(Json.stringify(pd));
 		req.onData = d -> {
 			var user:User;
-			if (d == null)
+			try {
+				user = Json.parse(d);
+			} catch (e:Exception) {
+				trace(e);
 				return;
-			user = Json.parse(d);
+			}
 			var channels = user.channels;
+			trace(user);
 			var convos = new Array<String>();
 			for (channel in channels) {
 				var convo = NetUtil.getChannel(channel);
@@ -56,7 +60,7 @@ class AppRenderer {
 			}
 		};
 		req.onError = e -> {
-			throw new Exception(e);
+			trace(e);
 		};
 		req.request(true);
 	}
