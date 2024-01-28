@@ -79,7 +79,6 @@ class Main {
 				}
 			}));
 			req.onData = d -> {
-				trace(d);
 				Cookie.set("token", d);
 				Browser.window.location.href = "/app.html";
 			};
