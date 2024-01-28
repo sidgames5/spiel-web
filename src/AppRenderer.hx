@@ -21,7 +21,7 @@ class AppRenderer {
 			css.href = 'app_${Cookie.get("theme")}.css';
 		else {
 			Cookie.set("theme", "light");
-			css.href = "app_light";
+			css.href = "app_light.css";
 		}
 		doc.head.appendChild(css);
 	}
